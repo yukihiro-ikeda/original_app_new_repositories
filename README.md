@@ -32,12 +32,12 @@ https://docs.google.com/spreadsheets/d/14wfD7Yvca9CuDNZB5ovGCy4H8B3I1omCoQhd1jIZ
 
 ワイヤーフレーム
 -----------
-(/images/ワイヤーフレーム.png) 
+!(/images/ワイヤーフレーム.png) 
 
 ER図
 -----------
-(/images/original_app_ER-ER図.drawio.png) 
+!(/Users/yukihiroikeda/workspace/original_app1/app/assets/images/original_app_ER-ER図.drawio.png) 
 
 画面遷移図
 -----------
-(/images/original_app_ER-画面遷移図.drawio.png) 
+!(/images/original_app_ER-画面遷移図.drawio.png) 
