@@ -16,7 +16,7 @@ Devise
 
 ```
 $ git clone git@github.com:yukihiro-ikeda/original_app.git
-$ cd original_app
+$ cd original_app1
 $ bundle
 $ rails db:create && rails db:migrate
 $ rails s
@@ -32,12 +32,11 @@ https://docs.google.com/spreadsheets/d/14wfD7Yvca9CuDNZB5ovGCy4H8B3I1omCoQhd1jIZ
 
 ワイヤーフレーム
 -----------
-!(/images/ワイヤーフレーム.png) 
+
 
 ER図
 -----------
-!(/Users/yukihiroikeda/workspace/original_app1/app/assets/images/original_app_ER-ER図.drawio.png) 
+
 
 画面遷移図
 -----------
-!(/images/original_app_ER-画面遷移図.drawio.png) 
