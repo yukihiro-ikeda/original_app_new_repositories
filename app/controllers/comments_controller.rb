@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params_valid)
+    @comment.user_id = current_user.id
     if @comment.save
       # ContactMailer.contact_mail(@blog).deliver
       redirect_to comments_path, notice: "comment was successfully created." 
