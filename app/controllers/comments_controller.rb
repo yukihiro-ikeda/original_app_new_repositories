@@ -23,6 +23,6 @@ class CommentsController < ApplicationController
 
   private
   def params_valid
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :user_id, :audio)
   end
 end

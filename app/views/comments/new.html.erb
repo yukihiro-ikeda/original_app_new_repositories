@@ -1,0 +1,14 @@
+<%= form_with(model:@comment, local:true) do |form| %>
+
+  <div class="picture_content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :audio %>
+    <%= form.file_field :audio %>
+  </div>
+  <%= form.submit '投稿する' %>
+  
+<% end %>
