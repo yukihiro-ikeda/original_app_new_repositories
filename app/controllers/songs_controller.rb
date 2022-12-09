@@ -12,7 +12,7 @@ class SongsController < ApplicationController
     @song.user_id = current_user.id
     if @song.save
       # ContactMailer.contact_mail(@blog).deliver
-      redirect_to songs_path, notice: "song was successfully created." 
+      redirect_to comments_path, notice: "song was successfully created." 
     else
       render :new
     end

@@ -1,0 +1,11 @@
+<%= form_with(model:@song, local:true) do |form| %>
+
+  <div class="song_title">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+
+  <%= form.submit '作成する' %>
+
+<% end %>
