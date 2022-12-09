@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   
   def show
+    @song = Song.all
   end
 
   def new
