@@ -1,12 +1,14 @@
 <h1>公開投稿一覧</h1>
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.content %></td>
+    <td>title:<%= comment.content %></td>
     <div class="audio">
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
     </div>
-    <%= link_to '詳細', comment_path(comment.id) %>
-    <%= link_to '編集', edit_comment_path(comment.id) %>
-    <%= link_to '削除', comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか?'} %>
+    <div class="link>"
+      <%= link_to '詳細', comment_path(comment.id) %>
+      <%= link_to '編集', edit_comment_path(comment.id) %>
+      <%= link_to '削除', comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
+    </div>
   </tr>
 <% end %>
