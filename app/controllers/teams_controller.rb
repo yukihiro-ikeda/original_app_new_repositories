@@ -1,5 +1,9 @@
 class TeamsController < ApplicationController
 
+  def index
+    @teams = Team.all
+  end
+
   
   def show
     @song = Song.all
@@ -10,10 +14,10 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = current_user.teams.build(team_params)
-    @team.owner = current_user
+    @team = Team.new(team_params)
+    @team.owner_id = current_user.id
     if @team.save
-      @team.invite_member(@team.owner)
+      # @team.invite_member(@team.owner_id)
       redirect_to comments_path, notice: "チームを作成しました"
     else
       flash.now[:error] = "チームの作成に失敗しました"
@@ -29,6 +33,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:email)
+    params.require(:team).permit(:name, :owner_id)
   end
 end
