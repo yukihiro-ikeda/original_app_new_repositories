@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'comments#index'
   resources :comments
   resources :teams
-  resources :songs
+  resources :songs do
+    resources :comments
+  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

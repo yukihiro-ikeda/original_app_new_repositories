@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
 
   
   def show
-    @song = Song.all
+    @team = Team.find(params[:id])
   end
 
   def new

@@ -19,7 +19,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @comments = Comment
+    @comments = Comment.all
     @song = Song.find(params[:id])
   end
 
