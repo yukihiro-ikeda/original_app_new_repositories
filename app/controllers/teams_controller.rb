@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
     @team.owner_id = current_user.id
     if @team.save
       # @team.invite_member(@team.owner_id)
-      redirect_to comments_path, notice: "チームを作成しました"
+      redirect_to teams_path, notice: "チームを作成しました"
     else
       flash.now[:error] = "チームの作成に失敗しました"
       render :new
@@ -33,6 +33,6 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :owner_id)
+    params.require(:team).permit(:name, :owner_id, :id)
   end
 end

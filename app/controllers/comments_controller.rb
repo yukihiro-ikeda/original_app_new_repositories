@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
+  # before_action :set_comment, only: %i[ index ]
 
   def index
-    @comments = Comment.all
+    @song = Song.find(params[:song_id])
+    @comments = @song.comments
+    # Blog.where(title: 'タイトルD')
   end
 
   def new
@@ -46,6 +49,11 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  # def set_comment
+  #   @comment = Comment.find(params[:id])
+  # end
+
   def params_valid
     params.require(:comment).permit(:content, :user_id, :audio, :song_id )
   end

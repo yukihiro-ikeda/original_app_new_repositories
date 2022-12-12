@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .header {
+  background-color: rgba(12, 11, 4, 0.222);
+  height: 30px;
+  font-size: 1rem;
+  color: #fff;
+}
+
+ .footer{
+  background-color: rgba(12, 11, 4, 0.126);
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: table;
+}
+
+.footer p {
+  font-size: 1rem;
+  color: rgba(15, 6, 7, 0.571);
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.body {
+  background-color: #bc1621a5;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_10_115041) do
+ActiveRecord::Schema.define(version: 2022_12_12_065607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_115041) do
     t.bigint "user_id", null: false
     t.string "audio"
     t.bigint "song_id", null: false
+    t.integer "public"
     t.index ["song_id"], name: "index_comments_on_song_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_115041) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
