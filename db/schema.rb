@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_12_12_065607) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_songs_on_user_id"
+    t.bigint "team_id", null: false
+    t.index ["team_id"], name: "index_songs_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -85,6 +85,6 @@ ActiveRecord::Schema.define(version: 2022_12_12_065607) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "comments"
   add_foreign_key "favorites", "users"
-  add_foreign_key "songs", "users"
+  add_foreign_key "songs", "teams"
   add_foreign_key "teams", "users", column: "owner_id"
 end

@@ -1,18 +1,20 @@
 class SongsController < ApplicationController
+
   def index
     @songs = Song.all
   end
 
   def new
-    @song = Song.new
+    team = Team.find(params[:team_id])
+    @song = team.songs.build
   end
 
   def create
-    @song = Song.new(params_valid)
-    @song.user_id = current_user.id
+    team = Team.find(params[:song][:team_id])
+    @song = team.songs.build(song_params)
     if @song.save
       # ContactMailer.contact_mail(@blog).deliver
-      redirect_to comments_path, notice: "song was successfully created." 
+      redirect_to song_path(@song), notice: "song was successfully created." 
     else
       render :new
     end
@@ -30,7 +32,7 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id]) 
-    if @song.update(params_valid)  
+    if @song.update(song_params)  
       redirect_to songs_path
     else
       render :edit
@@ -44,7 +46,7 @@ class SongsController < ApplicationController
   end
 
   private
-  def params_valid
-    params.require(:song).permit(:title, :user_id)
+  def song_params
+    params.require(:song).permit(:title, :user_id, :team_id)
   end
 end

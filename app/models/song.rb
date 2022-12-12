@@ -1,4 +1,4 @@
 class Song < ApplicationRecord
   has_many :comments
-  belong_to :team
+  belongs_to :team
 end

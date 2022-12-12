@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'comments#index'
+  root 'teams#new'
   resources :comments
   resources :teams
   resources :songs do
