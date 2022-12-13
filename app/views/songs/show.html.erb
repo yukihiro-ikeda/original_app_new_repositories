@@ -1,20 +1,37 @@
-<h1>ソング詳細</h1>
+<h1>ソングワークスペース</h1>
 <p>
-<strong>プロジェクト名:</strong>
+
 <%= @song.title %>
 </p>
 
 <% @comments.each do |comment| %>
-  <tr>
-    <td>title:<%= comment.content %></td>
-    <div class="audio">
-    <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
-    </div>
-    <div class="link>"
-      <%= link_to '詳細', comment_path(comment.id) %>
-      <%= link_to '編集', edit_comment_path(comment.id) %>
-      <%= link_to '削除', comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
-    </div>
-  </tr>
+  <% if comment.id.present? %>
+    <tr>
+      <td>コメント:<%= comment.content %></td>
+      <div class="audio">
+      <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+      <%= link_to '詳細', song_comment_path(@song, comment) %><tr>
+      <%= link_to '編集', edit_song_comment_path(@song, comment) %><tr>
+      <%= link_to '削除', song_comment_path(@song, comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><tr>
+      </div>
+    </tr>
+  <% end %>
+<% end %>
+
+<h3>アイデア投稿</h3>
+<%= form_with(model: [@song, @comment], url:song_path(@song), local:true) do |form| %>
+
+  <div class="comment_content">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :audio %>
+    <%= form.file_field :audio %>
+  </div>
+  <%= form.hidden_field :comment_id, :value => params[:comment_id] %>
+  <%= form.submit '投稿する' %>
+
 <% end %>
 

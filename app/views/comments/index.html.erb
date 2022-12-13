@@ -1,7 +1,7 @@
 <h1>投稿コメント</h1>
 <% @comments.each do |comment| %>
   <tr>
-    <td>comment title:<%= comment.content %></td>
+    <td>title:<%= comment.content %></td>
     <div class="audio">
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
     </div>
@@ -11,4 +11,5 @@
       <%= link_to '削除', comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
     </div>
   </tr>
+  <%= link_to 'Back', :back %>
 <% end %>

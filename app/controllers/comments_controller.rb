@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       # ContactMailer.contact_mail(@blog).deliver
-      redirect_to song_comments_path, notice: "comment was successfully created." 
+      render :new, notice: "comment was successfully created." 
     else
       render :new
     end
