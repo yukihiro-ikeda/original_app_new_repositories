@@ -15,3 +15,10 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 end
+
+  # root 'comments#index'
+  #   resources :comments
+  #   resources :teams 
+  #   resources :songs do
+  #     resources :comments
+#   end
