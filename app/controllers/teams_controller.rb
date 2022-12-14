@@ -1,6 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
+    # @teams = Team.find(params[:owner_id])
     @teams = Team.all
   end
 

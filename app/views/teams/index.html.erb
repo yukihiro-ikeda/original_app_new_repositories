@@ -1,9 +1,10 @@
 <h1>所属チーム一覧</h1>
 <% @teams.each do |team| %>
   <tr>
-    <td>name:<%= team.name %></td>
+    <td>チーム名:<%= team.name %></td>
     <div>
     <td>オーナー:<%= team.owner_id %></td>
     </div>
+    <td><%= link_to 'チームページへ', team_path(team) %><br>
   </tr>
 <% end %>

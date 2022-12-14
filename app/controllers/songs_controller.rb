@@ -1,16 +1,17 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Song.all
+    @team = Team.find(params[:team_id])
+    @songs = @team.songs
   end
 
   def new
-    team = Team.find(params[:team_id])
+    @team = Team.find(params[:team_id])
     @song = team.songs.build
   end
 
   def create
-    team = Team.find(params[:song][:team_id])
+    @team = Team.find(params[:song][:team_id])
     @song = team.songs.build(song_params)
     if @song.save
       # ContactMailer.contact_mail(@blog).deliver

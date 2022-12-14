@@ -10,16 +10,13 @@
       <td>コメント:<%= comment.content %></td>
       <div class="audio">
       <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
-      <%= link_to '詳細', song_comment_path(@song, comment) %><tr>
-      <%= link_to '編集', edit_song_comment_path(@song, comment) %><tr>
-      <%= link_to '削除', song_comment_path(@song, comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><tr>
       </div>
     </tr>
   <% end %>
 <% end %>
 
 <h3>アイデア投稿</h3>
-<%= form_with(model: [@song, @comment], url:song_path(@song), local:true) do |form| %>
+<%= form_with(model: [@team, @song, Comment.new], url: team_song_comments_path(song_id: @song, team_id: @team), local:true) do |form| %>
 
   <div class="comment_content">
     <%= form.label :content %>

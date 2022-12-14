@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   # before_action :set_comment, only: %i[ index ]
 
   def index
-    @song = Song.find(params[:song_id])
-    @comments = @song.comments
+    # @song = Song.find(params[:song_id])
+    # @comments = @song.comments
     # Blog.where(title: 'タイトルD')
   end
 
