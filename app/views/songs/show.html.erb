@@ -16,7 +16,7 @@
 <% end %>
 
 <h3>アイデア投稿</h3>
-<%= form_with(model: [@team, @song, Comment.new], url: team_song_comments_path(song_id: @song, team_id: @team), local:true) do |form| %>
+<%= form_with(model: [@team, @song, @comment], local:true, method: :post) do |form| %>
 
   <div class="comment_content">
     <%= form.label :content %>
@@ -27,7 +27,7 @@
     <%= form.label :audio %>
     <%= form.file_field :audio %>
   </div>
-  <%= form.hidden_field :comment_id, :value => params[:comment_id] %>
+  
   <%= form.submit '投稿する' %>
 
 <% end %>

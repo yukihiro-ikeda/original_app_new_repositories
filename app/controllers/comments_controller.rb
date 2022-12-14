@@ -8,18 +8,20 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @team = Team.find(params[:team_id])
     @song = Song.find(params[:song_id])
     # @team = @agenda.team
     @comment = @song.comments.build
   end
 
   def create
+    @team = Team.find(params[:team_id])
     @song = Song.find(params[:song_id])
     @comment = @song.comments.build(params_valid)
     @comment.user_id = current_user.id
     if @comment.save
       # ContactMailer.contact_mail(@blog).deliver
-      render :new, notice: "comment was successfully created." 
+      redirect_to team_song_path(@song, team_id: @team), notice: "comment was successfully created." 
     else
       render :new
     end
