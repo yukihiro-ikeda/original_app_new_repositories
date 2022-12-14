@@ -7,7 +7,10 @@ class TeamsController < ApplicationController
 
   
   def show
+    # binding.pry
     @team = Team.find(params[:id])
+    @assign = Assign.where(team_id: params[:id])
+  
   end
 
   def new
