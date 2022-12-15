@@ -14,17 +14,20 @@ class CommentsController < ApplicationController
     # @team = @agenda.team
     @comment = @song.comments.build
   end
-
+  
   def create
     @team = Team.find(params[:team_id])
     @song = Song.find(params[:song_id])
     @comment = @song.comments.build(params_valid)
     @comment.user_id = current_user.id
-    if @comment.save
-      # ContactMailer.contact_mail(@blog).deliver
-      redirect_to team_song_path(@song, team_id: @team), notice: "comment was successfully created." 
-    else
-      render :new
+    respond_to do |format|
+      if @comment.save
+        format.js { render :index }
+        # ContactMailer.contact_mail(@blog).deliver
+        # redirect_to team_song_path(@song, team_id: @team), notice: "comment was successfully created." 
+      else
+        format.html { render :new, notice: '投稿できませんでした...' }
+      end
     end
   end
 

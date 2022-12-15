@@ -1,0 +1,12 @@
+<% comments.each do |comment| %>
+  <% if comment.id.present? %>
+    <tr>
+    <div class="title">
+      <td>アイデア:<%= comment.content %>
+    </div>      
+      <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
+      
+      <td><%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
+    </tr>
+  <% end %>
+<% end %>
