@@ -1,13 +1,10 @@
 <h1>ソングワークスペース</h1>
-<p>
-
+<h2>
 <%= @song.title %>
-</p>
+</h2>
 <div id="comments_area">
-<%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %>
+<%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %><br>
 </div>
 
   <h3>アイデア投稿</h3>
- 
-
   <%= render partial: 'comments/form', locals: { comment: @comment, song: @song } %>

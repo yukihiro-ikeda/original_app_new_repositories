@@ -2,5 +2,9 @@
 <% @songs.each do |song| %>
   <tr>
     <td>ソング名:<%= song.title %></td>
+    <%= link_to '詳細', team_song_path(@team,song) %>
+    <%= link_to '削除', team_song_path(@team,song), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
   </tr>
 <% end %>
+
+

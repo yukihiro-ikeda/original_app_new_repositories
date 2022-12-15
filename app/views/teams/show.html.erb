@@ -1,18 +1,17 @@
-<h1>チームページ</h1>
+<h2>チームページ</h2>
 <p>
 <strong>チーム名:</strong>
 <%= @team.name %>
 </p>
 
-<%= link_to 'ソング一覧', team_song_path(@team) %><br>
-<%= link_to 'ソングスペース作成', new_team_song_path(team_id: @team) %><br>
-<%= link_to 'Back', :back %><br>
+
+
 
 <%= form_with(model: Assign.new, url:team_assigns_path(@team), local: true) do |f| %>
   <div class="input-group">
     <%= f.email_field :email, placeholder: "emailアドレス" %>
     <div class="input-group-append">
-      <%= f.submit "チーム招待" %>
+      <%= f.submit "メンバー招待", class:"btn btn-dark" %>
     </div>
   </div>
 <% end %>
@@ -24,3 +23,14 @@
     </tr>
   
 <% end %>
+--------------------------
+<h3>ソング一覧</h3>
+<% @songs.each do |song| %>
+  <tr>
+    <td>ソング名:<%= song.title %></td>
+    <%= link_to '詳細', team_song_path(@team,song) %>
+    <%= link_to '削除', team_song_path(@team,song), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
+  </tr>
+<% end %>
+<%= link_to 'ソングスペース作成', new_team_song_path(@team) %><br>
+<%= link_to 'Back', :back %><br>

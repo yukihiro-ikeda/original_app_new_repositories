@@ -1,15 +1,14 @@
-<h1>公開コメント</h1>
+<h2>アイデア募集投稿一覧</h2>
 <% @comments.each do |comment| %>
   <tr>
     <td>title:<%= comment.content %></td>
     <div class="audio">
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+    <%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>
     </div>
     <div class="link>"
-      <%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>
-      <%= link_to '編集', edit_team_song_comment_path(comment.song.team, comment.song, comment) %>
-      <%= link_to '削除', team_song_comment_path(comment.song.team, comment.song, comment), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
+      
     </div>
   </tr>
-  <%= link_to 'Back', :back %>
 <% end %>
+<%= link_to 'Back', :back %>

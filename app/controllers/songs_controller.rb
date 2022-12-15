@@ -7,15 +7,15 @@ class SongsController < ApplicationController
 
   def new
     @team = Team.find(params[:team_id])
-    @song = team.songs.build
+    @song = @team.songs.build
   end
 
   def create
     @team = Team.find(params[:song][:team_id])
-    @song = team.songs.build(song_params)
+    @song = @team.songs.build(song_params)
     if @song.save
       # ContactMailer.contact_mail(@blog).deliver
-      redirect_to song_path(@song), notice: "song was successfully created." 
+      redirect_to team_path(@team), notice: "song was successfully created." 
     else
       render :new
     end
@@ -45,7 +45,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to songs_path
+    redirect_to team_path
   end
 
   private
