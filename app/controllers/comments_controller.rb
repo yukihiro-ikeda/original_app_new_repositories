@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     # @song = Song.find(params[:song_id])
     # @comments = @song.comments
     # Blog.where(title: 'タイトルD')
+    @comments = Comment.published
   end
 
   def new
@@ -59,6 +60,6 @@ class CommentsController < ApplicationController
   # end
 
   def params_valid
-    params.require(:comment).permit(:content, :user_id, :audio, :song_id )
+    params.require(:comment).permit(:content, :user_id, :audio, :song_id, :publiccomment )
   end
 end

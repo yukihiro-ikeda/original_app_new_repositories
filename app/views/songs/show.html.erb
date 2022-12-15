@@ -3,33 +3,40 @@
 
 <%= @song.title %>
 </p>
-
-<% @comments.each do |comment| %>
-  <% if comment.id.present? %>
-    <tr>
-    <div class="title">
-      <td>コメント:<%= comment.content %>
-    </div>      
-      <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
-      
-      <td><%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
-    </tr>
+  <% @comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <tr>
+      <div class="title">
+        <td>コメント:<%= comment.content %>
+      </div>      
+        <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
+        
+        <td><%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
+      </tr>
+    <% end %>
   <% end %>
-<% end %>
 
-<h3>アイデア投稿</h3>
-<%= form_with(model: [@team, @song, @comment], local:true, method: :post) do |form| %>
+  <h3>アイデア投稿</h3>
+  <%= form_with(model: [@team, @song, @comment], local:true, method: :post) do |form| %>
 
-  <div class="comment_content">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+    <div class="comment_content">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
 
-  <div class="field">
-    <%= form.label :audio %>
-    <%= form.file_field :audio %>
-  </div>
-  
+    <div class="field">
+      <%= form.label :audio %>
+      <%= form.file_field :audio %>
+    </div>
+    
+    <div>
+      <%= form.label :publiccomment, "公開", value: true %>
+      <%= form.radio_button :publiccomment, 'true' %>
+    </div>
+    <div>
+      <%= form.label :publiccomment, "非公開", value: false %>
+      <%= form.radio_button :publiccomment,'false' %>
+    </div>
   <%= form.submit '投稿する' %>
 
 <% end %>

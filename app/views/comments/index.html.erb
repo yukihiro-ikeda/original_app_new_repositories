@@ -1,4 +1,4 @@
-<h1>投稿コメント</h1>
+<h1>公開コメント</h1>
 <% @comments.each do |comment| %>
   <tr>
     <td>title:<%= comment.content %></td>
@@ -6,9 +6,9 @@
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
     </div>
     <div class="link>"
-      <%= link_to '詳細', comment_path(comment.id) %>
-      <%= link_to '編集', edit_comment_path(comment.id) %>
-      <%= link_to '削除', comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
+      <%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>
+      <%= link_to '編集', edit_team_song_comment_path(comment.song.team, comment.song, comment) %>
+      <%= link_to '削除', team_song_comment_path(comment.song.team, comment.song, comment), method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
     </div>
   </tr>
   <%= link_to 'Back', :back %>
