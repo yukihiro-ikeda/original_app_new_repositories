@@ -2,7 +2,7 @@
 
 <p>MyPage <%= @user.id %></p>
 <tr>
-<%= link_to '所属チーム', teams_path %><br>
+<%= link_to '所属チーム', teams_path(@user) %><br>
 <%= link_to 'チーム作成', new_team_path %><br>
 <%= link_to '公開コメント一覧', comments_path %><br>
 

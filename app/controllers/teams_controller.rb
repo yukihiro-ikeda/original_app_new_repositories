@@ -1,8 +1,15 @@
 class TeamsController < ApplicationController
 
   def index
+    # binding.pry
+    # Assign.where(team_id: params)
     # @teams = Team.find(params[:owner_id])
-    @teams = Team.all
+    # .where(email:current_user.email)
+
+    # @teams = current_user.assign_teams and Team.where(owner_id:current_user.id)
+    @teams = current_user.assign_teams
+    # @teams = Team.where(owner_id:current_user.id)
+    # @teams = Team.all
   end
 
   

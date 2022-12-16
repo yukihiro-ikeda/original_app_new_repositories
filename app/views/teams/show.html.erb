@@ -3,8 +3,10 @@
 <strong>チーム名:</strong>
 <%= @team.name %>
 </p>
-
-
+<p>
+<strong>リーダー名:</strong>
+<%= @team.owner_id %>
+</p>
 
 
 <%= form_with(model: Assign.new, url:team_assigns_path(@team), local: true) do |f| %>
@@ -27,7 +29,7 @@
 <h3>ソング一覧</h3>
 <% @songs.each do |song| %>
   <tr>
-    <td>ソング名:<%= song.title %></td>
+    <td><%= song.title %></td>
     <%= link_to '詳細', team_song_path(@team,song) %>
     <%= link_to '削除', team_song_path(@team,song), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
   </tr>
