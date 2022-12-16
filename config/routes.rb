@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  
+  post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+  post '/homes/admins_guest_sign_in', to: 'homes#admins_guest_sign_in'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'homes#show'
   resources :users, :only => [:show]
