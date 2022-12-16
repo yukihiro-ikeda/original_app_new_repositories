@@ -1,10 +1,9 @@
 <%= form_with(model:@team, local:true) do |form| %>
-
   <div class="team_name">
-    <%= form.label :name %>
-    <%= form.text_area :name %>
+    <%= form.label :チーム名 %>
+    <%= form.text_area :name,class:"form-control" %>
   </div>
 
-  <%= form.submit '作成する' %>
+  <%= form.submit '作成する', class:"btn btn-info" %>
 
 <% end %>
