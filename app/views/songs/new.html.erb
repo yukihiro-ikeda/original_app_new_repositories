@@ -2,7 +2,7 @@
 
   <div class="song_title">
     <%= form.label :ソングプロジェクト名 %>
-    <%= form.text_area :title %>
+    <%= form.text_area :title,class:"form-control" %>
   </div>
 
   <%= form.hidden_field :team_id, :value => params[:team_id] %>
