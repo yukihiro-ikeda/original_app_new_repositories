@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
 
     # @teams = current_user.assign_teams and Team.where(owner_id:current_user.id)
     @teams = current_user.assign_teams
-    # @teams = Team.where(owner_id:current_user.id)
+    @myteams = Team.where(owner_id:current_user.id)
     # @teams = Team.all
   end
 

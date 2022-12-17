@@ -10,3 +10,13 @@
   </tr>
 <% end %>
   ------------------------------
+  <% @myteams.each do |myteam| %>
+    <tr>
+    ------------------------------<br>
+      <td>チーム名:<%= myteam.name %></td>
+      <div>
+      <td>リーダー:<%= myteam.owner_id %></td>
+      </div>
+      <td><%= link_to 'チームページへ', team_path(myteam) %><br>
+    </tr>
+  <% end %>
