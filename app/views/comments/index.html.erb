@@ -4,7 +4,7 @@
     <td><%= comment.content %></td>
     <div class="audio">
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
-    <%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>
+    <!--<%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>-->
     </div>
     <div class="link>"
       
