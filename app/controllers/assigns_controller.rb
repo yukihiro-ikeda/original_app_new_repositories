@@ -13,6 +13,10 @@ class AssignsController < ApplicationController
   end
 
   def destroy
+    @assign = Assign.find(params[:id])
+    @assign.destroy
+    team = Team.find(params[:team_id])
+    redirect_to team_path(team), notice: "メンバーを削除しました."
   end
 
   private

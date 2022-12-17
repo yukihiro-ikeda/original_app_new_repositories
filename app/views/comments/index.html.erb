@@ -1,7 +1,7 @@
 <h2>アイデア募集投稿一覧</h2>
 <% @comments.each do |comment| %>
   <tr>
-    <td>title:<%= comment.content %></td>
+    <td><%= comment.content %></td>
     <div class="audio">
     <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
     <%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>

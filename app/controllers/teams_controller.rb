@@ -35,6 +35,7 @@ class TeamsController < ApplicationController
       render :new
     end
   end
+  
 
 
   private

@@ -22,7 +22,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.find(params[:team_id])
     @song = Song.find(params[:id])
     @comments = @song.comments
     @comment = @song.comments.build

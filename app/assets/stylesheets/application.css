@@ -22,6 +22,18 @@
   color: #fff;
 }
 
+.wrapper {
+  min-height: 100%;
+ 
+  /* フッタの高さと等しいネガティブマージン */
+  /* また最後の子要素の潜在的なマージンとしても機能 */
+  margin-bottom: -50px;
+}
+
+.footer,
+.push {
+  height: 50px;
+}
  .footer{
   background-color: rgba(12, 11, 4, 0.126);
   height: 40px;
