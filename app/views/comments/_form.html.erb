@@ -1,8 +1,7 @@
 <%= form_with(model: [@team, @song, @comment], local:false, method: :post) do |form| %>
 
   <div class="comment_content">
-    <%= form.label :コメント %><br>
-    <%= form.text_area :content,class:"form-control" %>
+    <%= form.text_area :content,class:"form-control", placeholder: "コメント入力" %>
   </div>
 
   <div class="field">
@@ -11,9 +10,9 @@
   </div>
   
   <div>
-    <%= form.label :publiccomment, "公開", value: true %>
+    <%= form.label :publiccomment, "公開", value: true, class:"btn btn-outline-info" %>
     <%= form.radio_button :publiccomment, 'true' %>
-    <%= form.label :publiccomment, "非公開", value: false %>
+    <%= form.label :publiccomment, "非公開", value: false, class:"btn btn-outline-dark" %>
     <%= form.radio_button :publiccomment,'false' %>
   </div>
 <%= form.submit '投稿する', class:"btn btn-info" %>
