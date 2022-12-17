@@ -11,6 +11,11 @@
     <tr>
     ------------------------------<br>
       <td><%= link_to myteam.name, team_path(myteam) %>
-      <%= link_to '削除', team_path(myteam), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
+      <%= link_to '削除', team_path(myteam), class:"btn btn-warning", method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
     </tr>
   <% end %>
+<br>
+------------------------------<br>
+<br>
+<%= link_to 'チーム作成', new_team_path %>
+  
