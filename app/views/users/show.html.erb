@@ -1,6 +1,6 @@
 <h1>ユーザーページ</h1>
 
-<p>MyPage <%= @user.id %></p>
+<p><%= @user.email %></p>
 <tr>
 <%= link_to '所属チーム', teams_path(@user) %><br>
 <%= link_to 'チーム作成', new_team_path %><br>

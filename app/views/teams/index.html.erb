@@ -1,22 +1,16 @@
-<h1>所属チーム一覧</h1>
+<h2>所属チーム一覧</h2>
 <% @teams.each do |team| %>
   <tr>
   ------------------------------<br>
-    <td>チーム名:<%= team.name %></td>
-    <div>
-    <td>リーダー:<%= team.owner_id %></td>
-    </div>
-    <td><%= link_to 'チームページへ', team_path(team) %><br>
+    <td><%= link_to team.name, team_path(team) %><br>
   </tr>
 <% end %>
   ------------------------------
+  <h2>myチーム一覧</h2>
   <% @myteams.each do |myteam| %>
     <tr>
     ------------------------------<br>
-      <td>チーム名:<%= myteam.name %></td>
-      <div>
-      <td>リーダー:<%= myteam.owner_id %></td>
-      </div>
-      <td><%= link_to 'チームページへ', team_path(myteam) %><br>
+      <td><%= link_to myteam.name, team_path(myteam) %>
+      <%= link_to '削除', team_path(myteam), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
     </tr>
   <% end %>

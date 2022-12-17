@@ -24,7 +24,7 @@
 
 .wrapper {
   min-height: 100%;
- 
+  text-align: center;
   /* フッタの高さと等しいネガティブマージン */
   /* また最後の子要素の潜在的なマージンとしても機能 */
   margin-bottom: -50px;
@@ -51,8 +51,9 @@
   display: table-cell;
 }
 
+
 .body {
-  background-color: #bc1621a5;
-  margin-bottom: 40px;
+  margin: auto;
+  width: 1000px;
 }
 

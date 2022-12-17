@@ -11,28 +11,33 @@
 
 <%= form_with(model: Assign.new, url:team_assigns_path(@team), local: true) do |f| %>
   <div class="input-group">
-    <%= f.email_field :email, placeholder: "emailアドレス" %>
+    <%= f.email_field :email, placeholder: "招待ユーザーemail" %>
     <div class="input-group-append">
       <%= f.submit "メンバー招待", class:"btn btn-dark" %>
     </div>
   </div>
 <% end %>
-
+<br>
+<strong>メンバーアドレス</strong><br>
 <% @assign.each do |assign| %>
- 
     <tr>
-      <td>メンバーemail:<%= assign.user.email %></td>
-      <%= link_to 'メンバー削除', team_assign_path(@team,assign), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
+      <td><%= assign.user.email %></td>
+      <%= link_to '削除', team_assign_path(@team,assign), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
     </tr>
   
 <% end %>
+<br>
 --------------------------
+<div class="songindex">
 <h3>ソング一覧</h3>
+</div>
+<div class="songlist">
 <% @songs.each do |song| %>
   <tr>
     <%= link_to song.title, team_song_path(@team,song) %>
     <%= link_to '削除', team_song_path(@team,song), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
   </tr>
 <% end %>
+</div>
 <%= link_to 'ソングスペース作成', new_team_song_path(@team) %><br>
 <%= link_to 'Back', :back %><br>
