@@ -36,13 +36,19 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    # binding.pry
+    @team = Team.find(params[:team_id])
+    @song = Song.find(params[:song_id])
     @comment = Comment.find(params[:id])
   end
 
   def update
-    @comment = Comment.find(params[:id]) 
+    @team = Team.find(params[:team_id])
+    @song = Song.find(params[:song_id])
+    @comment = Comment.find(params[:id])
+    # binding.pry
     if @comment.update(params_valid)  
-      redirect_to comments_path
+      redirect_to team_song_path(@team, @song, @comment)
     else
       render :edit
     end
@@ -63,6 +69,6 @@ class CommentsController < ApplicationController
   # end
 
   def params_valid
-    params.require(:comment).permit(:content, :user_id, :audio, :song_id, :publiccomment )
+    params.require(:comment).permit(:content, :user_id, :audio, :song_id, :publiccomment, :team_id, :id )
   end
 end

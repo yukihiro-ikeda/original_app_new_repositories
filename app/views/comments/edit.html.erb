@@ -1,0 +1,20 @@
+<%= form_with(model: [@team, @song, @comment], local:true ) do |form| %>
+
+  <div class="comment_content">
+    <%= form.text_area :content,class:"form-control", placeholder: "コメント入力" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :audio投稿 %>
+    <%= form.file_field :audio, class:"btn btn-warning" %>
+  </div>
+  
+  <div>
+    <%= form.label :publiccomment, "公開", value: true, class:"btn btn-outline-info" %>
+    <%= form.radio_button :publiccomment, 'true' %>
+    <%= form.label :publiccomment, "非公開", value: false, class:"btn btn-outline-dark" %>
+    <%= form.radio_button :publiccomment,'false' %>
+  </div>
+<%= form.submit '投稿する', class:"btn btn-info" %>
+
+<% end %>
