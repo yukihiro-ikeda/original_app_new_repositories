@@ -22,8 +22,11 @@
 <strong>メンバーアドレス</strong><br>
 <% @assign.each do |assign| %>
     <tr>
+    <br>
       <td><%= assign.user.email %></td>
-      <%= link_to '削除', team_assign_path(@team,assign), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
+      <% if assign.user_id == current_user.id || assign.team.owner_id == current_user.id %>
+        <%= link_to '削除', team_assign_path(@team,assign), method: :delete, data: {confirm: '本当に削除しますか?'} %></td><br>
+      <% end %>
     </tr>
   
 <% end %>

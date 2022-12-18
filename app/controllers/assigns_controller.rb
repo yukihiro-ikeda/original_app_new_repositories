@@ -14,6 +14,7 @@ class AssignsController < ApplicationController
 
   def destroy
     @assign = Assign.find(params[:id])
+
     @assign.destroy
     team = Team.find(params[:team_id])
     redirect_to team_path(team), notice: "メンバーを削除しました."
@@ -23,6 +24,10 @@ class AssignsController < ApplicationController
 
   def assign_params
     params.require(:assign).permit(:email, :team_id )
+  end
+
+  def find_user(*)
+    Assign.find_by(team_id: params[:id], user_id: current_user)
   end
   
 end
