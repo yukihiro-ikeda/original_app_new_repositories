@@ -1,12 +1,17 @@
-<h1>検索結果</h1>
-
+<br><br>
+<h3>検索結果</h3>
+<%= link_to 'Back', :back %>
   <tbody>
     <% @results.each do |comment| %>
       <tr>
-        <td><%= comment.content %></td><br>
-        <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+        <% if comment.publiccomment  %>
+          <br>
+          <td><%= comment.content %></td><br>
+          <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
 <%= link_to 'Back', :back %>
