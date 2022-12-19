@@ -15,6 +15,6 @@
     <%= form.label :publiccomment, "非公開", value: false, class:"btn btn-outline-dark" %>
     <%= form.radio_button :publiccomment,'false' %>
   </div>
-<%= form.submit '投稿する', class:"btn btn-info" %>
+<%= form.submit '投稿する',data: {"turbolinks" => false}, class:"btn btn-info" %>
 
 <% end %>
