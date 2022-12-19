@@ -1,0 +1,12 @@
+<h1>検索結果</h1>
+
+  <tbody>
+    <% @results.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td><br>
+        <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', :back %>

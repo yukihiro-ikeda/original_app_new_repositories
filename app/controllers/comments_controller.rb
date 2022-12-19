@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   # before_action :set_comment, only: %i[ index ]
+  before_action :set_q, only: [:index, :search]
 
   def index
     # @song = Song.find(params[:song_id])
@@ -62,6 +63,10 @@ class CommentsController < ApplicationController
     redirect_to team_song_path(@song, team_id: @team)
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   # def set_comment
@@ -70,5 +75,9 @@ class CommentsController < ApplicationController
 
   def params_valid
     params.require(:comment).permit(:content, :user_id, :audio, :song_id, :publiccomment, :team_id, :id )
+  end
+
+  def set_q
+    @q = Comment.ransack(params[:q])
   end
 end

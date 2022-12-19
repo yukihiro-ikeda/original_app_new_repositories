@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   root 'homes#show'
   resources :users, :only => [:show]
 
-  resources :comments, only: [:index]
+  resources :comments, only: [:index] do
+    collection do
+      get 'search'
+    end
+  end
 
   resources :teams do
     resources :assigns, only: %i[ create destroy ]
