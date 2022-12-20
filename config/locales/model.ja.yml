@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      team: チーム
+      song: ソング
+      comment: コメント
+      assign: アサイン
+      user: ユーザー
+      favorite: お気に入り
+
+    attributes:
+      team:
+        name: 名前
+      song:
+        title: タイトル
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      comment:
+        content: 内容
+        audio: オーディオ
+        publiccomment: 公開
