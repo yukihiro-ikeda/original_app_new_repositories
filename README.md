@@ -9,10 +9,11 @@ Ruby on Rails 6.1.7
 ----------
 Devise
 Ajaxを使ったコメント機能
+AWSデプロイ
 
 カリキュラム外の技術
 ----------
-外部ストレージ(cloudinary)を使用した音声ファイル投稿
+ransack仕様による検索機能
 
 ```
 $ git clone git@github.com:yukihiro-ikeda/original_app.git

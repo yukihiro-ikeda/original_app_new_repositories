@@ -41,9 +41,23 @@ Song.create!(
 
 Comment.create!(
   [
-    {content: "ドラム追加求む",
-    
-      
-    } 
+    {content: "ドラム追加求む",  song_id: 1},
+    {content: "ギター追加求む",  song_id: 2},
+    {content: "ベース追加求む",  song_id: 3},
+    {content: "シンセ追加求む",  song_id: 4},
+    {content: "シンガー追加求む",  song_id: 5},
+    {content: "歌詞追加求む",  song_id: 6}
+  ]
+)
+
+Assign.create!(
+  [
+    {user_id: 1,  team_id: 1},
+    {user_id: 2,  team_id: 1},
+    {user_id: 3,  team_id: 2},
+    {user_id: 4,  team_id: 3},
+    {user_id: 5,  team_id: 4},
+    {user_id: 6,  team_id: 5},
+    {user_id: 1,  team_id: 6}
   ]
 )

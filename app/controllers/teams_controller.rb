@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
     @teams = current_user.assign_teams
     @myteams = Team.where(owner_id:current_user.id)
     # @teams = Team.all
+    # binding.pry
   end
 
   
