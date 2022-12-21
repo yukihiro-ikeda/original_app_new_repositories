@@ -1,14 +1,14 @@
-<div class="container" style="justify-contents: center;">
+<div class="container">
 
 <h1>ソングワークスペース</h1>
 <h2>
 <%= @song.title %>
 </h2>
 <div id="comments_area">
-<%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %><br>
+  <%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %><br>
 </div>
-
-  <h3>アイデア投稿</h3>
+<h3>アイデア投稿</h3>
+<div id="error_explanation"></div>
   <%= render partial: 'comments/form', locals: { comment: @comment, song: @song } %>
 
   <br>

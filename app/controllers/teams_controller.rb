@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     # binding.pry
     # Assign.where(team_id: params)

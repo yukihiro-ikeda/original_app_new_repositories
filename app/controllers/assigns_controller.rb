@@ -1,14 +1,25 @@
 class AssignsController < ApplicationController
-  
+  before_action :authenticate_user!
+
+
   def create
+    
     user = User.find_by(email: params[:assign][:email])
     team = Team.find(params[:team_id])
-    # binding.pry
-    @assign = Assign.new(user_id: user.id, team_id: team.id)
-    if @assign.save
-      redirect_to team_path(team), notice: "招待しました." 
+      
+    if user 
+      # binding.pry
+      @assign = Assign.new(user_id: user.id, team_id: team.id) 
+      # @assign.user_id = User.find_by(email: params[:user][:email]).id
+      # @assign.group_id = params[:user][:group_id]
+      # @assign.save
+      if @assign.save
+        redirect_to team_path(team), notice: "招待しました." 
+      else
+        render :show
+      end
     else
-      render :show
+      redirect_to team_path(team), notice: "存在しないemailアドレスです." 
     end
   end
 

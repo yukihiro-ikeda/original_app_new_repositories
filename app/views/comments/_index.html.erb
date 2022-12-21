@@ -1,12 +1,13 @@
+
 <% comments.each do |comment| %>
   <% if comment.id.present? %>
-    <tr class="wrapper">
     <div class="title"><br>
-      <td><%= comment.content %><br>
+      <%= comment.content %><br>
     </div>
-      <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
-      <td><%= link_to  '編集',edit_team_song_comment_path(@team,@song,comment) %>
-      <td><%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
-    </tr>
+    <div class="wrapper">
+      <%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
+      <%= link_to  '編集',edit_team_song_comment_path(@team,@song,comment) %>
+      <%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
+    </div>
   <% end %>
 <% end %>

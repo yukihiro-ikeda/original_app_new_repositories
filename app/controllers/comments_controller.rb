@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   # before_action :set_comment, only: %i[ index ]
   before_action :set_q, only: [:index, :search]
 
@@ -27,7 +28,7 @@ class CommentsController < ApplicationController
         # ContactMailer.contact_mail(@blog).deliver
         # redirect_to team_song_path(@song, team_id: @team), notice: "comment was successfully created." 
       else
-        format.html { render :new, notice: '投稿できませんでした...' }
+        format.js { render :error }
       end
     end
   end

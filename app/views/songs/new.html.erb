@@ -1,5 +1,16 @@
 <%= form_with(model: [@team, @song], local:true) do |form| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= @song.errors.count %>件のエラーがあります。</h4>
+      <ul>
 
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="song_title">
     <%= form.label :ソングプロジェクト名 %>
     <%= form.text_area :title,class:"form-control", placeholder: "ソング名入力" %>

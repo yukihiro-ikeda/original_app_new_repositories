@@ -12,13 +12,83 @@ RSpec.describe 'ユーザ管理機能', type: :system do
         expect(page).to have_content 'ユーザーページ'
       end
     end
-    # context 'ユーザがログインせずにタスク一覧画面に遷移した場合' do
+
+    context "ユーザがログインせずチーム作成に飛ぼうとした場合" do
+      it "ログイン画面に遷移する" do
+
+        
+        visit new_team_path
+        expect(page).to have_content "ログイン"
+      end
+    end
+  end
+  describe "セッション機能" do
+    let!(:user){ FactoryBot.create(:user)}
+    let!(:second_user){ FactoryBot.create(:second_user)}
+    context "ユーザーがログインする場合" do
+      before do
+        visit new_user_session_path
+        fill_in "user[email]", with: user.email
+        fill_in "user[password]", with: user.password
+        click_on "ログイン"
+      end
+      it "ログインができる" do
+        expect(page).to have_content "ユーザーページ"
+      end
+      it "チーム作成画面に移管できる" do
+        visit new_team_path
+        expect(page).to have_content "チーム作成"
+      end
+    end
+  end
+      # it "今日のPOCCHIに遷移できる" do
+      #   FactoryBot.create(:)
+      #   visit new_answer_path
+      #   expect(page).to have_content "今日"
+      # end
+      
+  describe "管理画面機能" do
+    context "管理ユーザがログインした場合" do
+      it "質問一覧にアクセスできる" do
+        FactoryBot.create(:user)
+        visit rails_admin_path
+        expect(page).to have_content "サイト管理"
+      end
+    end
+    context "一般ユーザがログインした場合" do
+      let!(:second_user){FactoryBot.create(:second_user)}
+      it "質問一覧にアクセスできない" do
+        visit new_user_session_path
+        fill_in "user[email]", with: second_user.email
+        fill_in "user[password]", with: second_user.password
+        click_on "ログインする"
+        visit quizzes_path
+        expect(current_path).to eq root_path
+      end
+    end
+    describe "管理画面機能" do
+      let!(:user){FactoryBot.create(:user)}
+      let!(:second_user){FactoryBot.create(:second_user)}
+      context "管理ユーザがログインした場合" do
+        it "管理画面にアクセスできる" do
+          visit new_user_session_path
+          fill_in "user[email]", with: user.email
+          fill_in "user[password]", with: user.password
+          click_on "ログインする"
+          click_on "管理者画面"
+          expect(page).to have_content "サイト管理"
+        end
+      end
+    end
+  end
+end
+
+  # context 'ユーザがログインせずにタスク一覧画面に遷移した場合' do
     #   it 'ログイン画面に遷移する' do
     #     visit tasks_path
     #     expect(current_path).to eq new_session_path
     #   end
     # end
-  end
 
   # describe 'ログイン機能' do
   #   context '登録済みのユーザでログインした場合' do
@@ -130,4 +200,3 @@ RSpec.describe 'ユーザ管理機能', type: :system do
   #     end
   #   end
   # end
-end

@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   # before_action :check_user, only: %i[show edit update destroy]
-
+  before_action :authenticate_user!
   def index
     @team = Team.find(params[:team_id])
     @songs = @team.songs
