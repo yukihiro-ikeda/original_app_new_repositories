@@ -4,9 +4,9 @@ FactoryBot.define do
     password { 'adminpass' }
     password_confirmation { 'adminpass' }
     admin {'true'}
-    after(:create) do |user|
-      create_list(:assign, 1, user: user, team: create(:team))
-    end   
+    # after(:create) do |user|
+    #   create_list(:assign, 1, user: user, team: create(:team))
+    # end   
   end
 
   factory :second_user, class: User do

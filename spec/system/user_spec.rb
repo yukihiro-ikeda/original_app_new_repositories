@@ -1,17 +1,24 @@
 require 'rails_helper'
 RSpec.describe 'ユーザ管理機能', type: :system do
   describe '登録機能' do
-    context '新規ユーザを登録した場合' do
-      it '登録ユーザの詳細が表示される' do
-        visit new_user_registration_path
-        fill_in 'user[email]', with: 'itou@example.com'
-        fill_in 'user[password]', with: 'itouitou'
-        fill_in 'user[password_confirmation]', with: 'itouitou'
-        click_on 'アカウント登録'
-        expect(page).to have_content 'itou@example.com'
-        expect(page).to have_content 'ユーザーページ'
-      end
-    end
+  #   context '新規ユーザを登録した場合' do
+  #     it '登録ユーザの詳細が表示される' do
+  #       visit new_user_registration_path
+  #       fill_in 'user[email]', with: 'itou@example.com'
+  #       fill_in 'user[password]', with: 'itouitou'
+  #       fill_in 'user[password_confirmation]', with: 'itouitou'
+  #       click_on 'アカウント登録'
+  #       expect(page).to have_content 'itou@example.com'
+  #       expect(page).to have_content 'ユーザーページ'
+  #       click_on "チーム作成"
+  #       fill_in 'team[name]', with: 'itouチーム'
+  #       click_on "作成する"
+  #       click_on "itouチーム"
+  #       fill_in 'assign[email]', with:"user@example.com"
+  #       click_on "メンバー招待"
+  #       expect(page).to have_content 'user@example.com'
+  #     end
+  #   end
 
     context "ユーザがログインせずチーム作成に飛ぼうとした場合" do
       it "ログイン画面に遷移する" do
@@ -36,167 +43,36 @@ RSpec.describe 'ユーザ管理機能', type: :system do
         expect(page).to have_content "ユーザーページ"
       end
       it "チーム作成画面に移管できる" do
-        visit new_team_path
-        expect(page).to have_content "チーム作成"
+        click_on "チーム作成"
+        expect(page).to have_content "チーム名"
       end
     end
+    context "一般ユーザがログインした場合" do
+      let!(:second_user){FactoryBot.create(:second_user)}
+      it "管理画面にアクセスできない" do
+        visit new_user_session_path
+        fill_in "user[email]", with: second_user.email
+        fill_in "user[password]", with: second_user.password
+        click_on "ログイン"
+        expect(page).not_to have_content "管理者ページ"
+      end
+    end
+    context '管理者がログインした場合' do
+        it '管理画面にアクセスできる' do
+          # FactoryBot.create(:user)
+          visit new_user_session_path
+          fill_in "user[email]", with: 'adminuser@example.com'
+          fill_in "user[password]", with: 'adminpass'
+          click_on "ログイン"
+          visit rails_admin_path
+          expect(page).to have_content 'サイト管理'
+        end
+      end
   end
+end
+
       # it "今日のPOCCHIに遷移できる" do
       #   FactoryBot.create(:)
       #   visit new_answer_path
       #   expect(page).to have_content "今日"
       # end
-      
-  describe "管理画面機能" do
-    context "管理ユーザがログインした場合" do
-      it "質問一覧にアクセスできる" do
-        FactoryBot.create(:user)
-        visit rails_admin_path
-        expect(page).to have_content "サイト管理"
-      end
-    end
-    context "一般ユーザがログインした場合" do
-      let!(:second_user){FactoryBot.create(:second_user)}
-      it "質問一覧にアクセスできない" do
-        visit new_user_session_path
-        fill_in "user[email]", with: second_user.email
-        fill_in "user[password]", with: second_user.password
-        click_on "ログインする"
-        visit quizzes_path
-        expect(current_path).to eq root_path
-      end
-    end
-    describe "管理画面機能" do
-      let!(:user){FactoryBot.create(:user)}
-      let!(:second_user){FactoryBot.create(:second_user)}
-      context "管理ユーザがログインした場合" do
-        it "管理画面にアクセスできる" do
-          visit new_user_session_path
-          fill_in "user[email]", with: user.email
-          fill_in "user[password]", with: user.password
-          click_on "ログインする"
-          click_on "管理者画面"
-          expect(page).to have_content "サイト管理"
-        end
-      end
-    end
-  end
-end
-
-  # context 'ユーザがログインせずにタスク一覧画面に遷移した場合' do
-    #   it 'ログイン画面に遷移する' do
-    #     visit tasks_path
-    #     expect(current_path).to eq new_session_path
-    #   end
-    # end
-
-  # describe 'ログイン機能' do
-  #   context '登録済みのユーザでログインした場合' do
-  #     it 'ログイン後、ユーザの詳細ページが表示される' do
-  #       FactoryBot.create(:user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user1@example.com'
-  #       fill_in "session[password]", with: 'user1password'
-  #       click_button 'Log in'
-  #       expect(page).to have_content 'のページ'
-  #     end
-  #     it '他人の詳細画面にアクセスすると、タスク一覧画面に遷移する' do
-  #       user1 = FactoryBot.create(:user)
-  #       user2 = FactoryBot.create(:second_user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user1@example.com'
-  #       fill_in "session[password]", with: 'user1password'
-  #       click_button 'Log in'
-  #       visit user_path(user2.id)
-  #       expect(page).to have_content 'タスク一覧'
-  #     end
-  #     it 'ログアウトするとログイン画面に遷移し、「ログアウトしました」というメッセージが表示される' do
-  #       FactoryBot.create(:user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user1@example.com'
-  #       fill_in "session[password]", with: 'user1password'
-  #       click_button 'Log in'
-  #       click_on 'Logout'
-  #       expect(page).to have_content 'ログアウトしました'
-  #     end
-  #   end
-  # end
-
-  # describe '管理者機能' do
-  #   context '管理者がログインした場合' do
-  #     it '管理画面にアクセスできる' do
-  #       FactoryBot.create(:second_user)
-  #       FactoryBot.create(:user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user2@example.com'
-  #       fill_in "session[password]", with: 'user2password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       expect(current_path).to eq admin_users_path
-  #     end
-  #     it 'ユーザの新規登録ができる' do
-  #       FactoryBot.create(:second_user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user2@example.com'
-  #       fill_in "session[password]", with: 'user2password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       click_on '新規作成'
-  #       fill_in "user[name]", with: 'adduser'
-  #       fill_in "user[email]", with: 'adduser@example.com'
-  #       fill_in "user[password]", with: "adduserpassword"
-  #       fill_in "user[password_confirmation]", with: "adduserpassword"
-  #       click_button 'Create account'
-  #       expect(page).to have_content 'ユーザー一覧'
-
-  #     end
-  #     it 'ユーザ詳細画面にアクセスできる' do
-  #       FactoryBot.create(:second_user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user2@example.com'
-  #       fill_in "session[password]", with: 'user2password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       click_on "詳細"
-  #       expect(page).to have_content '詳細'
-  #     end
-  #     it 'ユーザ編集画面から、自分以外のユーザを編集できる' do
-  #       FactoryBot.create(:user)
-  #       FactoryBot.create(:second_user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user2@example.com'
-  #       fill_in "session[password]", with: 'user2password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       click_on '編集', match: :first
-  #       # click_on "編集"
-  #       fill_in "user[name]", with: 'adduser'
-  #       fill_in "user[email]", with: 'adduser@example.com'
-  #       fill_in "user[password]", with: 'user1password'
-  #       fill_in "user[password_confirmation]", with: 'user1password'
-  #       click_button 'Update'
-  #       expect(page).to have_content 'ユーザを編集しました'
-  #     end
-  #     it 'ユーザを削除できる' do
-  #       FactoryBot.create(:second_user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user2@example.com'
-  #       fill_in "session[password]", with: 'user2password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       click_on "削除"
-  #       expect(page).to have_content 'ユーザを削除しました'
-  #     end
-  #   end
-  #   context '一般ユーザが管理画面にアクセスした場合' do
-  #     it '管理画面にアクセスできない' do
-  #       FactoryBot.create(:user)
-  #       visit new_session_path
-  #       fill_in "session[email]", with: 'user1@example.com'
-  #       fill_in "session[password]", with: 'user1password'
-  #       click_on "Log in"
-  #       visit admin_users_path
-  #       expect(current_path).to eq tasks_path
-  #     end
-  #   end
-  # end
