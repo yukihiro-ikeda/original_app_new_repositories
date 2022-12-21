@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2022_12_21_085247) do
     t.bigint "user_id", null: false
     t.string "audio"
     t.bigint "song_id", null: false
-    t.integer "public"
     t.boolean "publiccomment", default: false
     t.index ["song_id"], name: "index_comments_on_song_id"
     t.index ["user_id"], name: "index_comments_on_user_id"

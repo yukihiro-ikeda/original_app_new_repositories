@@ -1,18 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 User.create!(
   [
-    {name: "ikeda", email:"ikeda@example.com"},
-    {name: "john", email:"john@example.com"},
-    {name: "satou", email:"satou@example.com"},
-    {name: "ueda", email:"ueda@example.com"},
-    {name: "nakatani", email:"nakatani@example.com"},
-    {name: "kawamura", email:"kawamura@example.com"},
+    {name: "ikeda", email:"ikeda@example.com",password:"ikedaikeda"},
+    {name: "john", email:"john@example.com",password:"johnjohn"},
+    {name: "satou", email:"satou@example.com",password:"satousatou"},
+    {name: "ueda", email:"ueda@example.com",password:"uedaueda"},
+    {name: "nakatani", email:"nakatani@example.com",password:"nakatani"},
+    {name: "kawamura", email:"kawamura@example.com",password:"kawamura"}
   ]
 )
 
@@ -35,29 +28,27 @@ Song.create!(
     {title: "house", team_id: 4},
     {title: "pops", team_id: 5},
     {title: "jazz", team_id: 6}
-    }
   ]
 )
 
 Comment.create!(
   [
-    {content: "ドラム追加求む",  song_id: 1},
-    {content: "ギター追加求む",  song_id: 2},
-    {content: "ベース追加求む",  song_id: 3},
-    {content: "シンセ追加求む",  song_id: 4},
-    {content: "シンガー追加求む",  song_id: 5},
-    {content: "歌詞追加求む",  song_id: 6}
+    {content: "ドラム追加求む",  song_id: 1, user_id:1},
+    {content: "ギター追加求む",  song_id: 2, user_id:2},
+    {content: "ベース追加求む",  song_id: 3, user_id:3},
+    {content: "シンセ追加求む",  song_id: 4, user_id:4},
+    {content: "シンガー追加求む",  song_id: 5, user_id:5},
+    {content: "歌詞追加求む",  song_id: 6, user_id:6}
   ]
 )
 
 Assign.create!(
   [
     {user_id: 1,  team_id: 1},
-    {user_id: 2,  team_id: 1},
-    {user_id: 3,  team_id: 2},
-    {user_id: 4,  team_id: 3},
-    {user_id: 5,  team_id: 4},
-    {user_id: 6,  team_id: 5},
-    {user_id: 1,  team_id: 6}
+    {user_id: 2,  team_id: 2},
+    {user_id: 3,  team_id: 3},
+    {user_id: 4,  team_id: 4},
+    {user_id: 5,  team_id: 5},
+    {user_id: 6,  team_id: 6}
   ]
 )
