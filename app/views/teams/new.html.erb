@@ -1,4 +1,16 @@
 <%= form_with(model:@team, local:true) do |form| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= @team.errors.count %>件のエラーがあります。</h4>
+      <ul>
+
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="team_name">
     <%= form.label :チーム名 %>
     <%= form.text_area :name,class:"form-control", placeholder: "チーム名入力" %>

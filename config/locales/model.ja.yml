@@ -10,9 +10,9 @@ ja:
 
     attributes:
       team:
-        name: 名前
+        name: チーム名
       song:
-        title: タイトル
+        title: ソング名
       user:
         name: 名前
         email: メールアドレス
