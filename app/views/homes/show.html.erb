@@ -1,13 +1,14 @@
-<br><%= link_to "新規登録", new_user_registration_path %><br>
+<br>
+<% unless user_signed_in? %>
+<%= link_to "新規登録", new_user_registration_path %><br>
 <%= link_to "ログイン", new_user_session_path %><br>
 <%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %><br>
 <%= link_to "管理者用ゲストログイン", homes_admins_guest_sign_in_path, method: :post %><br>
+<% end %>
+
 <div class="TOP">
 <h1>iDea studio</h1>
 </div>
-<%= link_to "管理者ページ", rails_admin_path %><br>
-<% if user_signed_in? %>
-<%= link_to "ユーザーTOP", user_path(current_user) %>
-<% end%>
+
 <br>
 

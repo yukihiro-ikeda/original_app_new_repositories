@@ -10,7 +10,7 @@ class HomesController < ApplicationController
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(current_user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
 
   def admins_guest_sign_in
@@ -20,6 +20,6 @@ class HomesController < ApplicationController
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
     sign_in user
-    redirect_to root_path, notice: '管理ゲストユーザーとしてログインしました。'
+    redirect_to user_path(current_user.id), notice: '管理ゲストユーザーとしてログインしました。'
   end
 end
