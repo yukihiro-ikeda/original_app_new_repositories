@@ -3,12 +3,17 @@
   <% if comment.id.present? %>
     <div class="title"><br>
       <%= comment.content %><br>
+      <p><%= comment.user.email %></p>
     </div>
     <div class="wrapper">
       <%= audio_tag comment.audio_url, :controls => true if comment.audio? %>
-      <br><%= comment.user.email %>
-      <%= link_to  '編集',edit_team_song_comment_path(@team,@song,comment) %>
-      <%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
+      <% if comment.user_id == current_user.id %>
+      <div class="destroydetail">
+        <%= link_to  '編集',edit_team_song_comment_path(@team,@song,comment) %>
+        <%= link_to  '削除',team_song_comment_path(@team,@song,comment), method: :delete, data: {confirm: '本当に削除しますか?'} %><br>
+      </div>
+      <% end %>
+      
     </div>
   <% end %>
 <% end %>
