@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
   end
   
   def create
+    # @user = User.find(params[:user_id])
     @team = Team.find(params[:team_id])
     @song = Song.find(params[:song_id])
     @comment = @song.comments.build(params_valid)
