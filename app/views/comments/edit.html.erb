@@ -1,4 +1,4 @@
-<%= form_with(model: [@team, @song, @comment], local:true ) do |form| %>
+<%= form_with(model: [@team, @song, @comment], local:true, method: :patch) do |form| %>
 
   <div class="comment_content">
     <%= form.text_area :content,class:"form-control", placeholder: "コメント入力" %>
