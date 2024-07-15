@@ -15,12 +15,39 @@
  */
 
 
- .header {
-  background-color: rgba(12, 11, 4, 0.322);
-  height: 30px;
-  font-size: 1rem;
-  color: #fff;
-  vertical-align: middle;
+.header{
+  background: linear-gradient(90deg, rgb(33, 157, 173), rgb(128, 105, 172));background-color: rgb(21, 26, 26);
+}
+
+.logo_image{
+  float: left;
+  margin-left: 100px;
+}
+
+.top_menu li{
+  float: right;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.li_color{
+  color: rgb(255, 255, 255);
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.sign_in_top_menu li{
+  float: right;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.one{
+  color: rgb(68, 212, 164);
 }
 
 .wrapper {
@@ -31,12 +58,22 @@
   /* margin-bottom: -50px; */
 }
 
+aside{
+  float: left;
+}
+
+.yield_space{
+  width: 80%;
+  float: left;
+  margin: 0 auto;
+}
+
 .footer,
 .push {
   height: 50px;
 }
  .footer{
-  background-color: rgba(12, 11, 4, 0.126);
+  background: linear-gradient(90deg, rgb(139, 190, 197), rgb(128, 105, 172));background-color: rgb(21, 26, 26);
   height: 40px;
   width: 100%;
   position: fixed;
@@ -46,7 +83,7 @@
 
 .footer p {
   font-size: 1rem;
-  color: rgba(15, 6, 7, 0.571);
+  color: rgba(206, 9, 124, 0.719);
   text-align: center;
   vertical-align: middle;
   display: table-cell;
@@ -64,3 +101,29 @@ li {
 }
 
 /* body { background-image: url(wallpaper-music-14.jpeg);} */
+
+
+
+.shozoku_user {
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin: 5px;
+  padding: 20px 0;
+}
+
+.sakusei_user {
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin: 5px;
+  padding: 20px 0;
+}
+
+.idea_user {
+  width: 200px;
+  height: 70px;
+  background-color: white;
+  margin: 5px;
+  padding: 20px 0;
+}

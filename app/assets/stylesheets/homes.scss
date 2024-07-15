@@ -1,14 +1,146 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.TOP {
-  background-color: #fff;
-}
 
 // .app_name {
 //   background-color: rgba(165, 208, 208, 0.667);
 // }
 
-.detail {
-  background-color: rgba(23, 232, 232, 0.544);
+// aside{
+//   display: none;
+// }
+
+body{
+  background-color: rgba(83, 84, 85, 0.144);
+  color: white;
+}
+
+.top{
+  margin-left: 150px;
+  margin-right: 100px;
+  background-color: white;
+  width: 100%;
+  height: 100px;
+}
+
+.top h1{
+  margin-bottom: 30px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
+.home_show{
+  display: inline-block;
+  background: linear-gradient(90deg, #4158D0, #C850C0 30%, #FFCC70);
+  background: -webkit-linear-gradient(0deg, #4158D0, #C850C0 30%, #FFCC70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 70px;
+}
+
+.root{
+  width: auto;
+  height: 300px;
+  text-align: center;
+}
+
+.root ul{
+  width: 100%;
+  margin-left: 170px;
+}
+
+
+.song{
+  float: left;
+  border: solid 0.5px white;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(90deg, rgba(194, 22, 237, 0.719), rgb(216, 144, 223));
+  transform: rotate(45deg);
+  margin-left: 100px;
+  position: relative;
+}
+
+.song h5{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 55px;
+}
+
+.song h6{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 80px;
+  left: 85px;
+  font-size: small;
+  padding-bottom: 50px;
+}
+
+
+.onsei{
+  float: left;
+  border: solid 0.5px white;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(90deg, rgb(22, 135, 237), rgb(111, 143, 175));
+  transform: rotate(45deg);
+  margin-left: 100px;
+  position: relative;
+}
+
+
+.onsei h5{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 55px;
+}
+
+
+.onsei h6{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 80px;
+  font-size: small;
+  left: 85px;
+  padding-bottom: 50px;
+}
+
+.group{
+  float: left;
+  border: solid 0.5px white;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(90deg, rgb(233, 237, 22), rgb(202, 183, 129));
+  transform: rotate(45deg);
+  margin-left: 100px;
+  position: relative;
+}
+
+.group h5{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 55px;
+}
+
+
+.group h6{
+  text-align: center;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 80px;
+  font-size: small;
+  left: 85px;
+  padding-bottom: 50px;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
 }

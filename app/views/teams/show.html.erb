@@ -1,7 +1,6 @@
 
 <br>
 <br>
-<strong>チーム名:</strong>
 <h2><%= @team.name %></h2>
 </p>
 <p>
@@ -20,7 +19,7 @@
 <% end %>
 <br>
 <strong>メンバーアドレス</strong><br>
-<div class="card mb-4 border-primary rounded-3 shadow-sm">
+<div class="">
 <% @assign.each do |assign| %>
     
     <br>
@@ -37,7 +36,7 @@
 <div class="songindex">
 <h3>ソング一覧</h3>
 </div>
-<div class="card mb-4 border-primary rounded-3 shadow-sm">
+<div class="">
   <div class="songlist">
   <% @songs.each do |song| %>
     <tr>
@@ -51,6 +50,5 @@
   </div>
 </div>
 <br>
-<%= link_to 'ソングスペース作成', new_team_song_path(@team), class:"btn btn-success" %><br>
-<br>
+<%= link_to 'ソング作成', new_team_song_path(@team), class:"btn btn-success" %><br>
 <%= link_to 'Back', teams_path %><br>

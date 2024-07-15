@@ -1,26 +1,27 @@
-<h2>現在所属しているチーム</h2>
-<div class="card mb-4 border-primary rounded-3 shadow-sm">
-  <% @teams.each do |team| %>
-    <tr>
-      <td><%= link_to team.name, team_path(team)%><br>
-    </tr>
-  <% end %>
+<div class="wrapper">
+  <div class="shozoku">
+    <h4>所属しているチーム</h4>
+    <ul>
+      <% @teams.each do |team| %>
+        <li><%= link_to team.name, team_path(team)%></li>
+      <% end %>
+      <% @myteams.each do |myteam| %>
+        <li><%= link_to myteam.name, team_path(myteam) %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="sakusei">
+    <ul>
+      <h4>作成したチーム</h4>
+      <% @myteams.each do |myteam| %>
+        <li><%= link_to myteam.name, team_path(myteam) %>
+        <%= link_to '削除', team_path(myteam), class:"btn btn-warning", method: :delete, data: {confirm: '本当に削除しますか?'} %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-  <h2>自分で作成したチーム</h2>
-<div class="card mb-4 border-primary rounded-3 shadow-sm">  
-  <% @myteams.each do |myteam| %>
-      <div>
-        <%= link_to myteam.name, team_path(myteam) %>
-        <%= link_to '削除', team_path(myteam), class:"btn btn-warning", method: :delete, data: {confirm: '本当に削除しますか?'} %></td>
-      </div><br>
-    </tr>
-  <% end %>
-</div>
-<br>
 <br>
 <%= link_to 'チーム作成', new_team_path, class:"btn btn-info" %>
-<br>
-<br>
 <br>
 <br>
 <%= link_to "back", user_path(current_user) %>

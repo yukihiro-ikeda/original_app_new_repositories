@@ -30,6 +30,7 @@ class CommentsController < ApplicationController
         # redirect_to team_song_path(@song, team_id: @team), notice: "comment was successfully created." 
       else
         format.js { render :error }
+        # binding.pry
       end
     end
   end

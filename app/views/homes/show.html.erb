@@ -1,54 +1,34 @@
 <br>
-<% unless user_signed_in? %>
-<%= link_to "新規登録", new_user_registration_path %><br>
-<%= link_to "ログイン", new_user_session_path %><br>
-<%= link_to "ゲストログイン", homes_guest_sign_in_path, method: :post %><br>
-<%= link_to "管理者用ゲストログイン", homes_admins_guest_sign_in_path, method: :post %><br>
-<% end %>
 
-<div class="TOP ml-5 mr-5 no-repeat ">
-<!--<img src="<%= asset_path "logo.png" %>" >-->
-<!--<h1 class="card ml-5 mr-5 border-info rounded-5 shadow-sm">iDea studio</h1>-->
+<div class="top">
+  <font face="arial black"><h1 class="home_show">iDea studio</h1></font>
+  <p>これは音声ファイルとメッセージを公開し合うためだけのスペースです。</p>
 </div>
 <br>
-<h4>バーチャルバンドのワークスペースアプリケーション</h4><br>
-<br><h2>「アイデアスタジオ」</h2>
-<div>
+
+
 <br>
-<div class="card ml-5 mr-5 border-info rounded-5 shadow-sm">
-<p>アイデアスタジオは、楽器奏者（ユーザー）同士によるアプリ上の仮想チーム{BAND}を</p>
-<p>結成することを可能にし、仮想BAND活動のタスク管理、進捗共有を効率化します。</p>
-<p>既存音楽マッチングアプリには実装されていない「チームに所属するシステム」により、</p>
-<p>ユーザーが楽器奏者や音楽コンテンツ製作者として、</p>
-<p>アプリ上の複数のグループで活動することが可能になります。</p>
+<br>
+<div class="root">
+  <ul>
+    <li>
+      <div class="song clearfix">
+        <h5>ソングスペース</h5><br>
+        <h6>「ソング作成」でジャンル名や曲名を付けたコミュニケーションスペースを作成できます。</h6>
+      </div>			
+    </li>
+    <li>  
+      <div class="onsei clearfix">
+          <h5>音声投稿機能</h5>							
+          <h6>「ソングワークスペース」ではコメントと音声ファイルが投稿可能</h6>
+      </div>									
+    </li>
+    <li>
+      <div class="group clearfix">
+          <h5>グループ招待機能</h5>							
+          <h6>チームメンバーがユーザーのemailアドレスを入力することで,グループに招待することが可能</h6>
+      </div>	
+    </li>
+  </ul>							
 </div>
-<br>
-<div>
-<h5>
-<br>
-<div class="container container-m">
-<div class="card-deck">
-  <div class="card border-info">
-    <div class="card-body">
-      <h6 class="card-title">プロジェクトスペース作成機能</h6><br>							
-      <p class="card-text">「ソングスペース」を作成し、その中でチームメンバーがコメントすることで、
-      チームプロジェクトの情報を共有することができます</p>
-    </div>									
-  </div>
-  <div class="card border-info">
-    <div class="card-body">
-      <h6 class="card-title">音声投稿機能</h6><br>							
-      <p class="card-text">ソングスペースではコメントと音声ファイルが投稿可能でチーム参加メンバーが											
-      コメント+音声データ情報を共有することができます。</p>
-    </div>									
-  </div>
-  <div class="card border-info">
-    <div class="card-body">
-      <h6 class="card-title">チーム招待機能</h6><br>							
-      <p class="card-text">チームメンバーがユーザーのemailアドレスを入力することで、											
-      チームに招待することが可能</p>
-    </div>									
-  </div>
-</div>
-</div>											
 
