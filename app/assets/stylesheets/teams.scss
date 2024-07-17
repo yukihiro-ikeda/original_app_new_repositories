@@ -1,17 +1,37 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.midasi{
+  font-size: 3rem;
+  margin_bottom: 3rem;
+  position: absolute;
+  top: 2.7rem;
+
+  left: 40%;
+}
 
 .input-group{
   width: fit-content;
   margin: auto;
+  color: black;
 }
 
 .input-group-append{
   width: fit-content;
   margin: auto;
+  color: black;
 }
 
+.song_index{
+  width: 65%;
+  height: auto;
+  background-color: white;
+  display: inline-block;
+}
+
+.song_index h3{
+  color: black;
+}
 
 .shozoku{
   width: 500px;
@@ -45,4 +65,18 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.invite{
+  float: right;
+  width: auto;
+  height: auto;
+  background-color: white;
+  color: black;
+}
+
+.clearfix:before{
+  content: "";
+  display: block;
+  clear: both;
 }

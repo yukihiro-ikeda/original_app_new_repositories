@@ -1,16 +1,15 @@
 <div class="container">
-
-<h1>ソングワークスペース</h1>
-<h2>
-<%= @song.title %>
-</h2>
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %><br>
+  <h1>ソングワークスペース</h1>
+  <h2>
+  <%= @song.title %>
+  </h2>
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments, song: @song } %><br>
+  </div>
 </div>
-<h3>アイデア投稿</h3>
-<div id="error_explanation"></div>
-  <%= render partial: 'comments/form', locals: { comment: @comment, song: @song } %>
-
-  <br>
-  <%= link_to 'Back', team_path(@team) %>
+<div class="idea_feed">
+  <h3>アイデア投稿</h3>
+  <div id="error_explanation"></div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, song: @song } %>
+    <%= link_to 'Back', team_path(@team) %>
 </div>

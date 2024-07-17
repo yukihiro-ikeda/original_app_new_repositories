@@ -1,18 +1,20 @@
-<h2>アイデア募集</h2>
-<%= search_form_for @q, url: search_comments_path do |f| %>
-  <%= f.label :content_cont, '募集名で検索' %>
-  <%= f.text_field :content_cont, placeholder: "募集名入力" %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-<% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.content %></td>
-    <div class="audio">
-    <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
-    <!--<%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>-->
-    </div>
-  </tr>
-<% end %>
+<div class="public_idea">
+  <h2>アイデア募集</h2>
+  <%= search_form_for @q, url: search_comments_path do |f| %>
+    <%= f.label :content_cont, '募集名で検索' %>
+    <%= f.text_field :content_cont, placeholder: "募集名入力" %>
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+      <div class="audio">
+      <td><%= audio_tag comment.audio_url, :controls => true if comment.audio? %></td>
+      <!--<%= link_to '詳細', team_song_comment_path(comment.song.team, comment.song, comment) %>-->
+      </div>
+    </tr>
+  <% end %>
+</div>
 <br>
 <%= link_to 'Back', user_path(current_user) %>

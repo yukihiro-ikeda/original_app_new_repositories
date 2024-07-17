@@ -14,6 +14,9 @@
  *= require_self
  */
 
+html{
+  width: 100%;
+}
 
 .header{
   background: linear-gradient(90deg, rgb(33, 157, 173), rgb(128, 105, 172));background-color: rgb(21, 26, 26);
@@ -21,13 +24,15 @@
 
 .logo_image{
   float: left;
-  margin-left: 100px;
+  margin-left: 6rem;
 }
 
 .top_menu li{
   float: right;
-  padding: 10px;
-  margin-right: 10px;
+  padding: 0.5rem;
+  margin-right: 0.6rem;
+  border-radius: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.226);
 }
 
 .li_color{
@@ -42,8 +47,10 @@
 
 .sign_in_top_menu li{
   float: right;
-  padding: 10px;
-  margin-right: 10px;
+  padding: 0.6rem;
+  margin-right: 0.6rem;
+  border-radius: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.226);
 }
 
 .one{
@@ -74,7 +81,7 @@ aside{
 }
  .footer{
   background: linear-gradient(90deg, rgb(139, 190, 197), rgb(128, 105, 172));background-color: rgb(21, 26, 26);
-  height: 40px;
+  height: 2.4rem;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -105,25 +112,25 @@ li {
 
 
 .shozoku_user {
-  width: 200px;
-  height: 70px;
+  width: 12rem;
+  height: 4.2rem;
   background-color: white;
-  margin: 5px;
-  padding: 20px 0;
+  margin: 0.3rem;
+  padding: 1.2rem 0;
 }
 
 .sakusei_user {
-  width: 200px;
-  height: 70px;
+  width: 12rem;
+  height: 4.2rem;
   background-color: white;
-  margin: 5px;
-  padding: 20px 0;
+  margin: 0.3rem;
+  padding: 1.2rem 0;
 }
 
 .idea_user {
-  width: 200px;
-  height: 70px;
+  width: 12rem;
+  height: 4.2rem;
   background-color: white;
-  margin: 5px;
-  padding: 20px 0;
+  margin: 0.3rem;
+  padding: 1.2rem 0;
 }
